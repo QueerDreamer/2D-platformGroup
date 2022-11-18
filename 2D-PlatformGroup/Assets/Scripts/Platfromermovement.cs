@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Platfromermovement : MonoBehaviour
 {
-    [SerailizeField]
+    [SerializeField]
     float moveSpeed = 1.0f;
     [SerializeField]
     float jumpSpeed = 1.0f;
     bool grounded = false;
-    RigidBody2D rb;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class Platfromermovement : MonoBehaviour
     void Update()
     {
         float moveX = Input.GetAxis("Horizontal");
-        Vector2 velocity = rb.veloctiy;
+        Vector2 velocity = rb.velocity;
         velocity.x = moveX * moveSpeed;
         rb.velocity = velocity;
         if(Input.GetButtonDown("Jump") && grounded)
@@ -30,12 +30,12 @@ public class Platfromermovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collisison.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D collison)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
