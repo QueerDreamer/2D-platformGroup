@@ -818,7 +818,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: As you gaze around the deserted town, you cry. This place that you called
     home was once a bustling town full of life and now, there wasn't even a single
-    blade of grass to breathe life.
+    blade of grass to breathe it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
