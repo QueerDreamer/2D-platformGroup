@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Crown : MonoBehaviour
 {
     public static int crowns = 0;
@@ -11,5 +10,6 @@ public class Crown : MonoBehaviour
     {
         crowns = crowns + 1;
         Destroy(crown);
+        CrownCounter. instance.IncreaseCrowns(value);
     }
 }
