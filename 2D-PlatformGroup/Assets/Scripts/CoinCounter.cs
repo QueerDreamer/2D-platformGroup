@@ -7,7 +7,6 @@ public class CoinCounter : MonoBehaviour
 {
     public int value;
     public TMP_Text coinText;
-    public int  currentCoins = 0;
      public static CoinCounter instance; 
     void Awake()
     {
@@ -16,14 +15,17 @@ public class CoinCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coinText.text = "Crowns: " + currentCoins.ToString();
+        coinText.text = "Crowns: " + Crown.crowns.ToString();
     }
 
-    public void IncreaseCoins(int v)
+    //public void IncreaseCoins()
+    //{
+    //    coinText.text = "Crowns: " + Crown.crowns.ToString();
+    //}
+    void Update()
     {
-        currentCoins += v;
-        coinText.text = "Crowns: " + currentCoins.ToString();
+        coinText.text = "Crowns: " + Crown.crowns.ToString();
+        value = Crown.crowns;
     }
-
 
 }
