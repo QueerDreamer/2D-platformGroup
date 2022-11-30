@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Crown : MonoBehaviour
 {
+    public int value;
     public static int crowns = 0;
     Rigidbody2D rb;
     public GameObject crown;
@@ -10,6 +11,6 @@ public class Crown : MonoBehaviour
     {
         crowns = crowns + 1;
         Destroy(crown);
-        CrownCounter. instance.IncreaseCrowns(value);
+        CoinCounter. instance.IncreaseCoins(value);
     }
 }
