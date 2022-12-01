@@ -5,15 +5,17 @@ using UnityEngine;
 public class Platfromermovement : MonoBehaviour
 {
     [SerializeField]
-    float moveSpeed = 1.0f;
+    public static float moveSpeed = 5.0f;
     [SerializeField]
-    float jumpSpeed = 1.0f;
+    public static float jumpSpeed = 1.5f;
     bool grounded = false;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        moveSpeed = moveSpeed + Upgrades.speedUpgrade;
+        jumpSpeed = jumpSpeed + Upgrades.jumpUpgrade;
     }
 
     // Update is called once per frame
