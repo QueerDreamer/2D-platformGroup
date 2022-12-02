@@ -9,6 +9,7 @@ public class Platfromermovement : MonoBehaviour
     [SerializeField]
     public static float jumpSpeed = 1.5f;
     bool grounded = false;
+    bool dash = false;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -31,13 +32,18 @@ public class Platfromermovement : MonoBehaviour
         }
         if (Input.GetButtonDown("Dash"))
         {
+            if (dash == true)
+            {
             if (moveX > 0)
             {
             rb.AddForce(new Vector2(300 * moveSpeed, 0));
+            dash = false;
             }
             else
             {
             rb.AddForce(new Vector2(-300 * moveSpeed, 0));
+            dash = false;
+            }
             }
         }
     }
@@ -46,6 +52,7 @@ public class Platfromermovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
+            dash = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
