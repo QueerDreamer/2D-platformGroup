@@ -21,11 +21,21 @@ public class Upgrades : MonoBehaviour
 
     public void SpeedUp()
     {
-     
+      if (Crown.crowns >= 10)
+        {
+        Crown.crowns = Crown.crowns - 10;
+        speedUpgrade = speedUpgrade + 0.6f;
+        Platfromermovement.moveSpeed = Platfromermovement.moveSpeed + speedUpgrade;
+        }
     }
 
     public void JumpUp()
     {
-
+        if (Crown.crowns >= 10)
+        {
+        Crown.crowns = Crown.crowns - 10;
+        jumpUpgrade = jumpUpgrade + 0.2f;
+        Platfromermovement.jumpSpeed = Platfromermovement.jumpSpeed + jumpUpgrade;
+        }
     }
 }

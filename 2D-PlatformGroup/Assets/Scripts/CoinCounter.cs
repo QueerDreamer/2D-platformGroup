@@ -17,11 +17,6 @@ public class CoinCounter : MonoBehaviour
     {
         coinText.text = "Crowns: " + Crown.crowns.ToString();
     }
-
-    //public void IncreaseCoins()
-    //{
-    //    coinText.text = "Crowns: " + Crown.crowns.ToString();
-    //}
     void Update()
     {
         coinText.text = "Crowns: " + Crown.crowns.ToString();

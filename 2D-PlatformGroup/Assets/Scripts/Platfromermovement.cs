@@ -29,6 +29,17 @@ public class Platfromermovement : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, 100 * jumpSpeed));
         }
+        if (Input.GetButtonDown("Dash"))
+        {
+            if (moveX > 0)
+            {
+            rb.AddForce(new Vector2(300 * moveSpeed, 0));
+            }
+            else
+            {
+            rb.AddForce(new Vector2(-300 * moveSpeed, 0));
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
