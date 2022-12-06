@@ -19,21 +19,21 @@ public class LevelSelect : MonoBehaviour
 
     public void levelone()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void leveltwo()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("Level 2");
     }
 
     public void levelthree()
     {
-        SceneManager.LoadScene("Level3");
+        SceneManager.LoadScene("Level 3");
     }
 
     public void levelfour()
     {
-        SceneManager.LoadScene("Level4");
+        SceneManager.LoadScene("Level 4");
     }
 }
