@@ -37,12 +37,12 @@ public class Platfromermovement : MonoBehaviour
             {
             if (moveX > 0)
             {
-            rb.AddForce(new Vector2(1.5f * moveSpeed, 0));
+            rb.AddForce(new Vector2(1.2f * moveSpeed, 50));
             dash = false;
             }
             else
             {
-            rb.AddForce(new Vector2(-1.5f * moveSpeed, 0));
+            rb.AddForce(new Vector2(-1.2f * moveSpeed, 50));
             dash = false;
             }
             }
@@ -57,7 +57,10 @@ public class Platfromermovement : MonoBehaviour
         }
     }
 
-    //private void OnTrigger
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        dash = true;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
