@@ -5,9 +5,9 @@ using UnityEngine;
 public class Platfromermovement : MonoBehaviour
 {
     [SerializeField]
-    public static float moveSpeed = 240.0f;
+    public static float moveSpeed = 500.0f; //240
     [SerializeField]
-    public static float jumpSpeed = 2.5f;
+    public static float jumpSpeed = 3f;
     bool grounded = false;
     bool dash = false;
     Rigidbody2D rb;
@@ -37,12 +37,12 @@ public class Platfromermovement : MonoBehaviour
             {
             if (moveX > 0)
             {
-            rb.AddForce(new Vector2(1.2f * moveSpeed, 50));
+            rb.AddForce(new Vector2(1.05f * moveSpeed, 100));
             dash = false;
             }
             else
             {
-            rb.AddForce(new Vector2(-1.2f * moveSpeed, 50));
+            rb.AddForce(new Vector2(-1.05f * moveSpeed, 100));
             dash = false;
             }
             }
