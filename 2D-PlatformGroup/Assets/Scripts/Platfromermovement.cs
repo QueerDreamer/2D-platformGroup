@@ -11,6 +11,7 @@ public class Platfromermovement : MonoBehaviour
     bool grounded = false;
     bool dash = false;
     Rigidbody2D rb;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class Platfromermovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(new Vector2(0, 100 * jumpSpeed));
+            animator.SetTrigger("Jumping");
         }
         if (Input.GetButtonDown("Dash"))
         {
@@ -46,6 +48,12 @@ public class Platfromermovement : MonoBehaviour
             dash = false;
             }
             }
+        }
+        float moveY = Input.GetAxis("Vertical");
+        if (moveY < 0)
+        {
+        //GetComponent<Animator>()
+        animator.SetBool("Falling",true);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
