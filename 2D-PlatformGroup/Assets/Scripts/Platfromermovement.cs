@@ -5,9 +5,9 @@ using UnityEngine;
 public class Platfromermovement : MonoBehaviour
 {
     [SerializeField]
-    public static float moveSpeed = 5.0f;
+    public static float moveSpeed = 500.0f; //240
     [SerializeField]
-    public static float jumpSpeed = 1.5f;
+    public static float jumpSpeed = 3f;
     bool grounded = false;
     bool dash = false;
     Rigidbody2D rb;
@@ -25,7 +25,8 @@ public class Platfromermovement : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         Vector2 velocity = rb.velocity;
         velocity.x = moveX * moveSpeed;
-        rb.velocity = velocity;
+        rb.AddForce(new Vector2(moveX * Time.deltaTime * moveSpeed, 0));
+        //rb.velocity = velocity;
         if(Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(new Vector2(0, 100 * jumpSpeed));
@@ -36,12 +37,12 @@ public class Platfromermovement : MonoBehaviour
             {
             if (moveX > 0)
             {
-            rb.AddForce(new Vector2(300 * moveSpeed, 0));
+            rb.AddForce(new Vector2(1.05f * moveSpeed, 100));
             dash = false;
             }
             else
             {
-            rb.AddForce(new Vector2(-300 * moveSpeed, 0));
+            rb.AddForce(new Vector2(-1.05f * moveSpeed, 100));
             dash = false;
             }
             }
@@ -55,6 +56,12 @@ public class Platfromermovement : MonoBehaviour
             dash = true;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        dash = true;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
