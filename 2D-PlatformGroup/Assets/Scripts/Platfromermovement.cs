@@ -27,8 +27,9 @@ public class Platfromermovement : MonoBehaviour
         Vector2 velocity = rb.velocity;
         velocity.x = moveX * moveSpeed;
         rb.AddForce(new Vector2(moveX * Time.deltaTime * moveSpeed, 0));
+        animator.SetFloat("xInput", moveX);
         //rb.velocity = velocity;
-        if(Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(new Vector2(0, 100 * jumpSpeed));
             animator.SetTrigger("Jumping");
@@ -54,6 +55,10 @@ public class Platfromermovement : MonoBehaviour
         {
         //GetComponent<Animator>()
         animator.SetBool("Falling",true);
+        }
+        else
+        {
+            animator.SetBool("Falling", false);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
