@@ -51,7 +51,7 @@ public class Platfromermovement : MonoBehaviour
             }
         }
         float moveY = Input.GetAxis("Vertical");
-        if (moveY < 0)
+        if ( moveY < 0)
         {
         //GetComponent<Animator>()
         animator.SetBool("Falling",true);
