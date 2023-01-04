@@ -24,7 +24,7 @@ public class Flagtwo : MonoBehaviour
             Flag.levelTwo = true;
             if (Flag.levelTwo == true && Flag.levelThree == true && Flag.levelFour == true)
             {
-
+                SceneManager.LoadScene("Level 5");
             }
             else
             {
